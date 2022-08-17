@@ -22,7 +22,7 @@ public class Main {
     public static final String REMOTE_SERVICE_URL = "https://jsonplaceholder.typicode.com/posts";
     public static final ObjectMapper mapper = new ObjectMapper();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //        CloseableHttpClient httpClient = HttpClients.createDefault(); //настройки по умолчанию
         CloseableHttpClient httpClient = HttpClientBuilder.create()
                 .setUserAgent("My test service")
@@ -57,5 +57,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        httpClient.close();
     }
 }

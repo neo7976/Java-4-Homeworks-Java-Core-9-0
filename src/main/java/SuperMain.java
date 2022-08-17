@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 
 public class SuperMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         final CloseableHttpClient httpClient = HttpClients.createDefault();
 
         final HttpUriRequest httpGet = new HttpGet("https://jsonplaceholder.typicode.com/posts?_limit=20");
@@ -25,6 +25,8 @@ public class SuperMain {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        httpClient.close();
 
     }
 }
